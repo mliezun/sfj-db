@@ -34,6 +34,17 @@ func (db *DB[T]) View() T {
 	return *objcopy(db.data)
 }
 
+// Load loads data from file.
+func (db *DB[T]) Load() error {
+	db.rw.Lock()
+	defer db.rw.Unlock()
+	content, err := os.ReadFile(db.filepath)
+	if err != nil {
+		return err
+	}
+	return json.Unmarshal(content, &db.data)
+}
+
 // Filepath returns location of the json file.
 func (db *DB[T]) Filepath() string {
 	return db.filepath
@@ -91,12 +102,8 @@ func WriteFile(filename string, data []byte, perm os.FileMode) (err error) {
 
 // Open opens a json file as a database.
 func Open[T any](filepath string) (db *DB[T], err error) {
-	content, err := os.ReadFile(filepath)
-	if err != nil {
-		return nil, err
-	}
 	db = &DB[T]{filepath: filepath}
-	if err := json.Unmarshal(content, &db.data); err != nil {
+	if err := db.Load(); err != nil {
 		return nil, err
 	}
 	return db, nil
