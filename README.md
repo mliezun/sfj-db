@@ -51,7 +51,7 @@ Get a copy of the data to do some manipulation.
 
 ```go
 var mydata T
-mydata := db.View()
+mydata = db.View()
 ```
 
 Store a new version of the data. This operation is atomic, it either succeeds (writes successfully to the file) or it fails (it doesn't modify the file at all).
