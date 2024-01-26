@@ -17,8 +17,8 @@ import "github.com/mliezun/sfj-db"
 
 type Organization struct {
     Id      string `json:"id"`
-	Host    string `json:"host"`
-	Plan    string `json:"plan"`
+    Host    string `json:"host"`
+    Plan    string `json:"plan"`
 }
 
 
