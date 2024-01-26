@@ -27,8 +27,8 @@ func (db *DB[T]) Save(data T) error {
 	return WriteFile(db.filepath, content, 0644)
 }
 
-// Read returns a copy of the data.
-func (db *DB[T]) Read() T {
+// View returns a copy of the data.
+func (db *DB[T]) View() T {
 	db.rw.RLock()
 	defer db.rw.RUnlock()
 	return *objcopy(db.data)
