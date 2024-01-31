@@ -1,5 +1,8 @@
 # sfj-db
 
+[![godoc for mliezun/sfj-db][godoc-badge]][godoc-url]
+[![Build Status][actions-badge]][actions-url]
+
 Single File JSON Database. Store your data in a single JSON file and access it with go structs.
 
 Useful for when you have a very small set of data that you need to read or update.
