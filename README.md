@@ -66,3 +66,9 @@ err := db.Save(mydata)
 ## LICENSE
 
 [MIT](/LICENSE)
+
+
+[godoc-badge]: https://pkg.go.dev/badge/github.com/mliezun/sfj-db
+[godoc-url]: https://pkg.go.dev/github.com/mliezun/sfj-db
+[actions-badge]: https://github.com/mliezun/sfj-db/actions/workflows/test.yaml/badge.svg
+[actions-url]: https://github.com/mliezun/sfj-db/actions/workflows/test.yaml
